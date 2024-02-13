@@ -1,17 +1,9 @@
-function fromHTML(html, trim = true) {
-  // Process the HTML string.
-  html = trim ? html.trim() : html;
-  if (!html) return null;
+function createElementFromHTML(htmlString) {
+  var div = document.createElement('div');
+  div.innerHTML = htmlString.trim();
 
-  // Then set up a new template element.
-  const template = document.createElement('template');
-  template.innerHTML = html;
-  const result = template.content.children;
-
-  // Then return either an HTMLElement or HTMLCollection,
-  // based on whether the input HTML had one or more roots.
-  if (result.length === 1) return result[0];
-  return result;
+  // Change this to div.childNodes to support multiple top-level nodes.
+  return div.firstChild;
 }
 
 function ActivateFeedback() {
@@ -23,7 +15,7 @@ function ActivateFeedback() {
         button.id = "feedbackButton"
 
         document.body.appendChild(button);
-        document.body.append(fromHTML('<div id="feedbackPopup" class="popup"> <div class="popup-content"> <span class="close" onclick="closeFeedbackPopup()">&times;</span> <h2><i class="fa-regular fa-thumbs-up"></i> Any feedback about the content on this page?</h2> <hr> <div class="wrap"> <form name="feedbackForm"> <label class="statement" for="likert"> <i class="fa-solid fa-scale-unbalanced-flip"></i> How satisfied are you with content on this page?</label> <ul class="likert'> <li> <input type="radio" name="likert" value="5"> <label for="likert">Very satisfied</label> </li> <li> <input type="radio" name="likert" value="4"> <label for="likert">Somewhat satisfied</label> </li> <li> <input type="radio" name="likert" value="3"> <label for="likert">Neither satisfied nor dissatisfied</label> </li> <li> <input type="radio" name="likert" value="2"> <label for="likert">Somewhat dissatisfied</label> </li> <li> <input type="radio" name="likert" value="1"> <label for="likert">Very dissatisfied</label> </li> </ul> <label class="statement" for="feedbackText"><i class="fa-regular fa-comment-dots"></i> Is there any additional feedback you would like to provide about the content on this page?</label><br> <textarea style="width:100%" rows=5 name="feedbackText"></textarea> <hr> <div class="btn-group" role="group" aria-label="Basic example"> <button type="button" class="btn btn-outline-success" onclick="postFeedback()"><i class="fa-regular fa-paper-plane-top"></i> Submit</button> <button type="button" class="btn btn-outline-danger" onclick="closeFeedbackPopup()"><i class="fa-solid fa-xmark"></i> Cancel</button> </div> </form> </div> </div> </div>'));
+        document.body.appendChild(createElementFromHTML('<div id="feedbackPopup" class="popup"> <div class="popup-content"> <span class="close" onclick="closeFeedbackPopup()">&times;</span> <h2><i class="fa-regular fa-thumbs-up"></i> Any feedback about the content on this page?</h2> <hr> <div class="wrap"> <form name="feedbackForm"> <label class="statement" for="likert"> <i class="fa-solid fa-scale-unbalanced-flip"></i> How satisfied are you with content on this page?</label> <ul class="likert'> <li> <input type="radio" name="likert" value="5"> <label for="likert">Very satisfied</label> </li> <li> <input type="radio" name="likert" value="4"> <label for="likert">Somewhat satisfied</label> </li> <li> <input type="radio" name="likert" value="3"> <label for="likert">Neither satisfied nor dissatisfied</label> </li> <li> <input type="radio" name="likert" value="2"> <label for="likert">Somewhat dissatisfied</label> </li> <li> <input type="radio" name="likert" value="1"> <label for="likert">Very dissatisfied</label> </li> </ul> <label class="statement" for="feedbackText"><i class="fa-regular fa-comment-dots"></i> Is there any additional feedback you would like to provide about the content on this page?</label><br> <textarea style="width:100%" rows=5 name="feedbackText"></textarea> <hr> <div class="btn-group" role="group" aria-label="Basic example"> <button type="button" class="btn btn-outline-success" onclick="postFeedback()"><i class="fa-regular fa-paper-plane-top"></i> Submit</button> <button type="button" class="btn btn-outline-danger" onclick="closeFeedbackPopup()"><i class="fa-solid fa-xmark"></i> Cancel</button> </div> </form> </div> </div> </div>'));
         document.body.appendChild(document.getElementById('snackbar'));
 
         var feedbackButton = document.getElementById('feedbackButton');
