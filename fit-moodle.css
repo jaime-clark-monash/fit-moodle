@@ -1,0 +1,269 @@
+.popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #f9f9f9;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      z-index: 1;
+  }
+
+  .popup-content {
+      text-align: center;
+  }
+
+  .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+  }
+
+  .close:hover,
+  .close:focus {
+      color: black;
+      text-decoration: none;
+  }
+
+  .needHBtn {
+         color: #FFFFFF;
+         margin-top:7px; 
+  }
+
+.needHBtn-bg {
+      background: #FF5B00;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      box-shadow: 0px 0px 1px 1px #0000001a;
+      margin-right:10px;
+      margin-bottom:25px;
+  }
+
+.pulse {
+animation: pulse-animation 3s infinite;
+}
+
+@keyframes pulse-animation {
+0% {
+  box-shadow: 0 0 0 0px rgba(239, 119, 1, 0.95);
+} 
+100% {
+  box-shadow: 0 0 0 20px rgba(239, 119, 1, 0);
+}
+}
+
+  .needHBtn :hover,
+  .needHBtn :focus {
+      color: #000000;
+      transform: scale(1.01);
+  }
+
+
+/* Back to top button styling */
+.btn-light {
+      background:#006DAE;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      box-shadow: 0px 0px 1px 1px #0000001a;
+      margin-right:13px;
+      margin-bottom:15px;        
+      color: #FFFFFF;
+}
+
+  .btn-light:hover,
+  .btn-light:focus {
+      background: #3d90c2 !important;
+      color: #000000;
+  }
+
+/* Reposition back to top button's icon  */
+.fa-arrow-up {
+      margin-left: -5px;
+}
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.wrap {
+    font: 12px Arial, san-serif;
+}
+
+h1.likert-header {
+    padding-left: 4.25%;
+    margin: 20px 0 0;
+}
+
+form .statement {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 30px 0 0 4.25%;
+    margin-bottom: 10px;
+}
+
+form .likert {
+    list-style: none;
+    width: 100%;
+    margin: 0;
+    padding: 0 0 35px;
+    display: block;
+    border-bottom: 2px solid #efefef;
+}
+
+form .likert:last-of-type {
+    border-bottom: 0;
+}
+
+form .likert:before {
+    content: '';
+    position: relative;
+    top: 11px;
+    left: 9.5%;
+    display: block;
+    background-color: #efefef;
+    height: 4px;
+    width: 78%;
+}
+
+form .likert li {
+    display: inline-block;
+    width: 19%;
+    text-align: center;
+    vertical-align: top;
+}
+
+form .likert li input[type=radio] {
+    display: block;
+    position: relative;
+    top: 0;
+    left: 50%;
+    margin-left: -6px;
+
+}
+
+form .likert li label {
+    width: 100%;
+}
+
+form .buttons {
+    margin: 30px 0;
+    padding: 0 4.25%;
+    text-align: right
+}
+
+form .buttons button {
+    padding: 5px 10px;
+    background-color: #67ab49;
+    border: 0;
+    border-radius: 3px;
+}
+
+form .buttons .clear {
+    background-color: #e9e9e9;
+}
+
+form .buttons .submit {
+    background-color: #67ab49;
+}
+
+form .buttons .clear:hover {
+    background-color: #ccc;
+}
+
+form .buttons .submit:hover {
+    background-color: #14892c;
+}
+
+#snackbar {
+    visibility: hidden;
+    /* Hidden by default. Visible on click */
+    min-width: 250px;
+    /* Set a default minimum width */
+    margin-left: -125px;
+    /* Divide value of min-width by 2 */
+    background-color: #333;
+    /* Black background color */
+    color: #fff;
+    /* White text color */
+    text-align: center;
+    /* Centered text */
+    border-radius: 2px;
+    /* Rounded borders */
+    padding: 16px;
+    /* Padding */
+    position: fixed;
+    /* Sit on top of the screen */
+    z-index: 1;
+    /* Add a z-index if needed */
+    left: 50%;
+    /* Center the snackbar */
+    bottom: 30px;
+    /* 30px from the bottom */
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+#snackbar.show {
+    visibility: visible;
+    /* Show the snackbar */
+    /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+However, delay the fade out process for 2.5 seconds */
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
