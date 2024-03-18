@@ -7,8 +7,8 @@ function createElementFromHTML(htmlString) {
 }
 
 function ActivateFeedback() {
-  let Editormode = document.getElementsByName("setmode")[0];
-  if (!Editormode.checked) {
+  let Editormode = document.getElementsByName("setmode")[0].checked ?? false;
+  if (!Editormode) {
         var button = document.createElement("Button");
         button.innerHTML = "<div title='Any feedback about your unit's content?' class='needHBtn pulse needHBtn-bg'><strong><span class='fa-regular fa-thumbs-up needHBtn'></span></strong></div>";
         button.style = "bottom:0;right:0;position:absolute;border:none;background-color:transparent;"
@@ -28,8 +28,8 @@ function ActivateFeedback() {
 }
 
 function ActivateHelp() {
-  let Editormode = document.getElementsByName("setmode")[0];
-  if (Editormode.checked) {
+  let Editormode = document.getElementsByName("setmode")[0].checked ?? false;
+  if (Editormode) {
     var button = document.createElement("Button");
     button.innerHTML = "<div title='Need help with Moodle?' class='needHBtn pulse needHBtn-bg'><strong><span class='fa fa-question needHBtn'></span></strong></div>";
     button.style = "bottom:0;right:0;position:absolute;border:none;background-color:transparent;"
