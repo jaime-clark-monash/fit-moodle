@@ -1,3 +1,4 @@
+/* Help Popup code - Start */
 .popup {
       display: none;
       position: fixed;
@@ -61,31 +62,104 @@ animation: pulse-animation 3s infinite;
       color: #000000;
       transform: scale(1.01);
   }
-
+/* Help Popup code - End */
 
 /* Back to top button styling */
 .btn-light {
-      background:#006DAE;
-      width: 35px;
-      height: 35px;
-      border-radius: 50%;
-      box-shadow: 0px 0px 1px 1px #0000001a;
-      margin-right:13px;
-      margin-bottom:15px;        
-      color: #FFFFFF;
+        background:#006DAE !important;
+        width: 35px !important;
+        height: 35px !important;
+        border-radius: 50% !important;
+        box-shadow: 0px 0px 1px 1px #0000001a !important;
+        margin-right: 13px !important;
+        margin-bottom: 15px !important;
+        color: #FFFFFF !important;
 }
 
-  .btn-light:hover,
-  .btn-light:focus {
-      background: #3d90c2 !important;
-      color: #000000;
-  }
-
-/* Reposition back to top button's icon  */
+    .btn-light:hover,
+    .btn-light:focus {
+        background: #3d90c2 !important;
+        color: #000000;
+}
+/* Reposition back to top button's icon */
 .fa-arrow-up {
-      margin-left: -5px;
+        margin-left: -5px !important;
+}
+/* Styling quick link buttons - Start */
+.quickLinkBtn {
+     display: flex;
+     height: 40px;
+     padding: 0;
+     background: #006DAE;
+     border: none;
+     outline: none;
+     border-radius: 5px;
+     overflow: hidden;
+     font-family: "Quicksand", sans-serif;
+     font-size: 16px;
+     font-weight: 500;
+     cursor: pointer;
+     margin-bottom: 5px;
 }
 
+.quickLinkBtn:hover,
+.quickLinkBtn:active {
+     background: #2287c4;
+}
+
+.quickLinkBtn_text,
+.quickLinkBtn_icon {
+     display: inline-flex;
+     align-items: center;
+     padding: 0 15px;
+     color: #fff;
+     height: 100%;
+}
+
+.quickLinkBtn_icon {
+     font-size: 1.5em;
+     background: rgba(0,
+    0,
+    0,
+    0.20);
+}
+/* Styling quick link buttons - End */
+/* Temporary fix for the activity edit menu appears behind other activities, resulting in some menu options being unclickable */
+.activity-item.hiddenactivity:has(.show) { 
+     z-index: 1;
+}
+/* Styling faculty-specific information boxes */
+.alert-it-blue { 
+	background: #006cab; 
+	color: #fff !important;
+	padding: 30px;
+}
+.hr-alert-it-blue {
+	border-top: 1px dashed #fff;
+}
+.alert-it-blue a {
+	color: #fff !important;
+	text-decoration: underline !important;
+	font-weight: bold !important;
+}
+.alert-it-blue h3 {
+	color: #fff !important;
+}
+/* Styling FIT Process blurbs */
+.fit-process-blurb {
+	border-left: 10px solid #006cab;
+	padding: 15px;
+}
+/* Fade down hidden information */
+.activity-item.hiddenactivity {
+	opacity: 0.7 !important;
+}
+/* Hide scale grade type option in assignment */
+    #id_grade_modgrade_type option[value=scale
+]{
+    display: none;
+}
+/* Moodle Student Feedback */
 html,
 body {
     padding: 0;
