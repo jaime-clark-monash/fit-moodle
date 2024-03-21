@@ -89,6 +89,28 @@ function ActivateHelp() {
   }
 }
 
+function ActivateRestrictions() {
+  window.addEventListener('load', function () {
+    var allowed_users = [
+        "rajib.uddin@monash.edu",
+        "jaime.clark@monash.edu",
+        "emma.yench@monash.edu",
+        "ross.mcqueen@monash.edu",
+        "phillip.abramson@monash.edu",
+        "matt.chen@monash.edu"
+    ];
+    if ($.inArray($(".myprofileitem a").eq(1).text().toLowerCase(), allowed_users) < 0) {
+      let element = document.evaluate("//ul[@class='nav more-nav nav-tabs']/li[@data-key='editsettings']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
+      element.singleNodeValue.remove();
+      if ($(location).attr('href').includes('https: //learning.monash.edu/course/edit.php?id=')) {
+        $('input').prop('disabled', true);
+        $('select').prop('disabled', true);
+        $('textarea').prop('disabled', true);
+      }
+    }
+  });
+}
+
 function openPopup() {
   helpPopup.style.display = 'block';
 }
