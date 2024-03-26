@@ -7,8 +7,8 @@ function createElementFromHTML(htmlString) {
 }
 
 function ActivateFeedback() {
-  let Editormode = document.getElementsByName("setmode")[0];
-  if (!(Editormode.checked ?? false)) {
+  let editor = document.getElementsByName("setmode");
+  if (editor.length < 1 || !document.getElementsByName("setmode")[0].checked)) {
         var button = document.createElement("Button");
         button.innerHTML = "<div title='Any feedback about your unit's content?' class='needHBtn pulse needHBtn-bg'><strong><span class='fa-regular fa-thumbs-up needHBtn'></span></strong></div>";
         button.style = "bottom:0;right:0;position:absolute;border:none;background-color:transparent;"
@@ -28,61 +28,59 @@ function ActivateFeedback() {
 }
 
 function ActivateHelp() {
-  try {
-    let Editormode = document.getElementsByName("setmode")[0].checked;
-    if (Editormode.checked) {
-      var button = document.createElement("Button");
-      button.innerHTML = "<div title='Need help with Moodle?' class='needHBtn pulse needHBtn-bg'><strong><span class='fa fa-question needHBtn'></span></strong></div>";
-      button.style = "bottom:0;right:0;position:absolute;border:none;background-color:transparent;"
-      button.id = "helpButton"
-  
-      document.body.appendChild(button);
-      document.body.appendChild(createElementFromHTML('<div id="helpPopup" class="popup"> <div class="popup-content"> <span class="close" onclick="closePopup()">&times;</span> <h2><i class="fa-solid fa-truck-medical"></i> Need Help?</h2> <hr> <form class=\'form-inline my-2 my-lg-0\'> <div class=\'input-group\'> <input id=\'SearchEngineText\' class=\'form-control mr-sm-2\' type=\'search\' placeholder=\'Search TeachHQ Articles\' aria-label=\'Search\'><button id="searchEngineButton" class="btn btn-outline-secondary" type="button" onclick="SearchEngine(\'https://www.monash.edu/learning-teaching/teachhq/search?query=\')"><i class="fa-solid fa-magnifying-glass"></i> Search</button></div> </form> <hr> <strong><i class="fa-solid fa-newspaper"></i> Suggested Articles</strong><br> <p id=\'suggestedArticles\'> <a href=\'https://www.monash.edu/learning-teaching/TeachHQ/moodle/digital-learning-uplift/new-moodle-template\' target=\'_blank\'>New Monash Moodle template</a> </p> <hr> <strong><i class="fa-solid fa-video"></i> Suggested Videos</strong><br> <p id=\'suggestedVideos\'> <a href=\'https://monash.au.panopto.com/Panopto/Pages/Viewer.aspx?pid=06e95a9b-0f54-467c-ac72-b0bd0032957d\' target=\'_blank\'>New Monash Moodle template</a> </p> <hr> <p><strong>Still need help?</strong> <a href=\'https://infotech-monash.atlassian.net/servicedesk/customer/portal/59/group/155/create/189\' target=\'_blank\'>Raise a request with EDiQ</a>.</p> </div> </div>'));
-  
-      var helpButton = document.getElementById('helpButton');
-      var helpPopup = document.getElementById('helpPopup');
-  
-      // Event listener for the help button
-      helpButton.addEventListener('click', function () {
-          openPopup();
-      });
-  
-      var input = document.getElementById("SearchEngineText");
-  
-      // Execute a function when the user presses a key on the keyboard
-      input.addEventListener("keypress", function (event) {
-          // If the user presses the "Enter" key on the keyboard
-          if (event.key === "Enter") {
-              // Cancel the default action, if needed
-              event.preventDefault();
-              // Trigger the button element with a click
-              document.getElementById("searchEngineButton").click();
-          }
-      });
-  
-      window.addEventListener('load', function () {
-        var title = "NA";
-        var subtitle = "NA";
-        var othertitle = "NA"
-        try {
-          title = document.getElementsByTagName('h1')[1].innerText.trim();
-        } catch { };
-        try {
-          subtitle = document.getElementsByTagName('h2')[0].innerText.trim();
-          if(subtitle == "Need Help?")
-          {
-              subtitle = document.getElementsByTagName('h2')[1].innerText.trim();
-          }
-        } catch { };
-        try {
-          othertitle = document.getElementsByTagName('h3')[1].innerText.trim();
-        } catch { };
-        var url = window.location.href
-  
-        Context(title, subtitle, othertitle, url);
-      });
-    }
-  } catch {}
+  let editorCheck = document.getElementsByName("setmode");
+  if (editorCheck.length > 0 && editorCheck[0].checked) {
+    var button = document.createElement("Button");
+    button.innerHTML = "<div title='Need help with Moodle?' class='needHBtn pulse needHBtn-bg'><strong><span class='fa fa-question needHBtn'></span></strong></div>";
+    button.style = "bottom:0;right:0;position:absolute;border:none;background-color:transparent;"
+    button.id = "helpButton"
+
+    document.body.appendChild(button);
+    document.body.appendChild(createElementFromHTML('<div id="helpPopup" class="popup"> <div class="popup-content"> <span class="close" onclick="closePopup()">&times;</span> <h2><i class="fa-solid fa-truck-medical"></i> Need Help?</h2> <hr> <form class=\'form-inline my-2 my-lg-0\'> <div class=\'input-group\'> <input id=\'SearchEngineText\' class=\'form-control mr-sm-2\' type=\'search\' placeholder=\'Search TeachHQ Articles\' aria-label=\'Search\'><button id="searchEngineButton" class="btn btn-outline-secondary" type="button" onclick="SearchEngine(\'https://www.monash.edu/learning-teaching/teachhq/search?query=\')"><i class="fa-solid fa-magnifying-glass"></i> Search</button></div> </form> <hr> <strong><i class="fa-solid fa-newspaper"></i> Suggested Articles</strong><br> <p id=\'suggestedArticles\'> <a href=\'https://www.monash.edu/learning-teaching/TeachHQ/moodle/digital-learning-uplift/new-moodle-template\' target=\'_blank\'>New Monash Moodle template</a> </p> <hr> <strong><i class="fa-solid fa-video"></i> Suggested Videos</strong><br> <p id=\'suggestedVideos\'> <a href=\'https://monash.au.panopto.com/Panopto/Pages/Viewer.aspx?pid=06e95a9b-0f54-467c-ac72-b0bd0032957d\' target=\'_blank\'>New Monash Moodle template</a> </p> <hr> <p><strong>Still need help?</strong> <a href=\'https://infotech-monash.atlassian.net/servicedesk/customer/portal/59/group/155/create/189\' target=\'_blank\'>Raise a request with EDiQ</a>.</p> </div> </div>'));
+
+    var helpButton = document.getElementById('helpButton');
+    var helpPopup = document.getElementById('helpPopup');
+
+    // Event listener for the help button
+    helpButton.addEventListener('click', function () {
+        openPopup();
+    });
+
+    var input = document.getElementById("SearchEngineText");
+
+    // Execute a function when the user presses a key on the keyboard
+    input.addEventListener("keypress", function (event) {
+        // If the user presses the "Enter" key on the keyboard
+        if (event.key === "Enter") {
+            // Cancel the default action, if needed
+            event.preventDefault();
+            // Trigger the button element with a click
+            document.getElementById("searchEngineButton").click();
+        }
+    });
+
+    window.addEventListener('load', function () {
+      var title = "NA";
+      var subtitle = "NA";
+      var othertitle = "NA"
+      try {
+        title = document.getElementsByTagName('h1')[1].innerText.trim();
+      } catch { };
+      try {
+        subtitle = document.getElementsByTagName('h2')[0].innerText.trim();
+        if(subtitle == "Need Help?")
+        {
+            subtitle = document.getElementsByTagName('h2')[1].innerText.trim();
+        }
+      } catch { };
+      try {
+        othertitle = document.getElementsByTagName('h3')[1].innerText.trim();
+      } catch { };
+      var url = window.location.href
+
+      Context(title, subtitle, othertitle, url);
+    });
+  }
 }
 
 function ActivateRestrictions() {
