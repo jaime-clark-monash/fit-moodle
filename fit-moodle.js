@@ -7,8 +7,7 @@ function createElementFromHTML(htmlString) {
 }
 
 function ActivateFeedback() {
-  let editor = document.getElementsByName("setmode");
-  if (editor.length < 1 || !document.getElementsByName("setmode")[0].checked) {
+  if (document.getElementsByName("setmode").length < 1 || !document.getElementsByName("setmode")[0].checked) {
         var button = document.createElement("Button");
         button.innerHTML = "<div title='Any feedback about your unit's content?' class='needHBtn pulse needHBtn-bg'><strong><span class='fa-regular fa-thumbs-up needHBtn'></span></strong></div>";
         button.style = "bottom:0;right:0;position:absolute;border:none;background-color:transparent;"
@@ -28,8 +27,7 @@ function ActivateFeedback() {
 }
 
 function ActivateHelp() {
-  let editorCheck = document.getElementsByName("setmode");
-  if (editorCheck.length > 0 && editorCheck[0].checked) {
+  if (document.getElementsByName("setmode").length > 0 && document.getElementsByName("setmode")[0].checked) {
     var button = document.createElement("Button");
     button.innerHTML = "<div title='Need help with Moodle?' class='needHBtn pulse needHBtn-bg'><strong><span class='fa fa-question needHBtn'></span></strong></div>";
     button.style = "bottom:0;right:0;position:absolute;border:none;background-color:transparent;"
