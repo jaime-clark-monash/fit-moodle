@@ -11,18 +11,22 @@ function ActivateFeedback() {
         var button = document.createElement("Button");
         button.innerHTML = "<div title='Any feedback about your unit's content?' class='needHBtn pulse needHBtn-bg'><strong><span class='fa-regular fa-thumbs-up needHBtn'></span></strong></div>";
         button.style = "bottom:0;right:0;position:absolute;border:none;background-color:transparent;"
-        button.id = "feedbackButton"
+        button.id = "feedbackButton";
 
         document.body.appendChild(button);
         document.body.appendChild(createElementFromHTML('<div id="feedbackPopup" class="popup"> <div class="popup-content"> <span class="close" onclick="closeFeedbackPopup()">&times;</span> <h2><i class="fa-regular fa-thumbs-up"></i> Any feedback about the content on this page?</h2> <hr> <div class="wrap"> <form name="feedbackForm"> <label class="statement" for="likert"> <i class="fa-solid fa-scale-unbalanced-flip"></i> How satisfied are you with content on this page?</label> <ul class="likert"> <li> <input type="radio" name="likert" value="5"> <label for="likert">Very satisfied</label> </li> <li> <input type="radio" name="likert" value="4"> <label for="likert">Somewhat satisfied</label> </li> <li> <input type="radio" name="likert" value="3"> <label for="likert">Neither satisfied nor dissatisfied</label> </li> <li> <input type="radio" name="likert" value="2"> <label for="likert">Somewhat dissatisfied</label> </li> <li> <input type="radio" name="likert" value="1"> <label for="likert">Very dissatisfied</label> </li> </ul> <label class="statement" for="feedbackText"><i class="fa-regular fa-comment-dots"></i> Is there any additional feedback you would like to provide about the content on this page?</label><br> <textarea style="width:100%" rows=5 name="feedbackText"></textarea> <hr> <div class="btn-group" role="group" aria-label="Basic example"> <button type="button" class="btn btn-outline-success" onclick="postFeedback()"><i class="fa-regular fa-paper-plane-top"></i> Submit</button> <button type="button" class="btn btn-outline-danger" onclick="closeFeedbackPopup()"><i class="fa-solid fa-xmark"></i> Cancel</button> </div> </form> </div> </div> </div>'));
         document.body.appendChild(createElementFromHTML('<div id="snackbar">Thanks for your feedback!</div>'));
-
+        document.getElementById("helpDivInject").appendChild(createElementFromHTML("<button type='button' class='quickLinkBtn' onclick='openFeedbackPopup()'> <span class='quickLinkBtn_text'>Any unit feedback?</span> <span class='quickLinkBtn_icon'> <i class='fa-regular fa-thumbs-up'  style='scale:0.85;'></i> </span> </button>"));
+    
         var feedbackButton = document.getElementById('feedbackButton');
         var feedbackPopup = document.getElementById('feedbackPopup');
-
+    
         feedbackButton.addEventListener('click', function () {
             openFeedbackPopup();
         });
+  }
+  else {
+    document.getElementById("helpDivInject").appendChild(createElementFromHTML("<a style='text-decoration: none;' href='https://lookerstudio.google.com/reporting/e96a9360-cf44-4919-a890-69f2922d9293' target='_blank' rel='noopener'> <button type='button' class='quickLinkBtn'> <span class='quickLinkBtn_text'>Open Report Dashboard</span> <span class='quickLinkBtn_icon'> <i class='fa-regular fa-thumbs-up'  style='scale:0.85;'></i> </span> </button> </a>"));
   }
 }
 
