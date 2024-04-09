@@ -279,14 +279,13 @@ function closeFeedbackPopup() {
 function postFeedback() {
   const selectedScale = document.querySelector('input[name="likert"]:checked').value;
   const currentUrl = window.location.href;
-  var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-  const now = new Date().toLocaleString();
-  const text = document.getElementsByName("feedbackText")[0].value
+  const text = document.getElementsByName("feedbackText")[0].value;
+  const pageTitle = document.title;
   fetch("https://script.google.com/macros/s/AKfycbySqPGQECIZUG3Rbs7SLN3QOLvXXySoRgwHKaXQh-c6XrN3bp9ZJNEhpvlKlTIV1E0/exec", {
       redirect: "follow",
       method: "POST",
       body: JSON.stringify({
-          DateTime: now,
+          Title: pageTitle,
           Link: currentUrl,
           Score: selectedScale,
           Feedback: text
