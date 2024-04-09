@@ -24,6 +24,10 @@ function ActivateFeedback() {
             openFeedbackPopup();
         });
   }
+  else {
+    document.getElementById("unitFeedbackButton").setAttribute("hidden", "hidden");
+    document.getElementById("feedbackReportButton").removeAttribute("hidden");
+  }
 }
 
 function ActivateHelp() {
@@ -38,7 +42,7 @@ function ActivateHelp() {
 
     var helpButton = document.getElementById('helpButton');
     var helpPopup = document.getElementById('helpPopup');
-
+    
     // Event listener for the help button
     helpButton.addEventListener('click', function () {
         openPopup();
