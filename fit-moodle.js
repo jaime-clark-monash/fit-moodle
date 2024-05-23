@@ -104,8 +104,7 @@ function ActivateRestrictions() {
         $('textarea').prop('disabled', true);
       }
       if ($(location).attr('href').includes('https://learning.monash.edu/backup/') || $(location).attr('href').includes('https://learning.monash.edu/course/reset.php?id=')) {
-        $('#page-content').html("<div class='alert alert-danger border border-danger rounded' role='alert'><h5 class='text-danger'> <i class='fa fa-exclamation-circle'></i> Moodle High Risk Area</h5><span class='alertcontent'><p>Please contact <a href='mailto:FIT.EDiQ@monash.edu'>EDiQ team</a> for assistance with importing, back-up, and cloning of units and/or content.</p>
-<p>Importing and resetting functions should not be attempted without EDiQ support.</p></span></div><!--End BEEST alert-->");
+        $('#page-content').html("<p>Test</p>");
       }
     }
   });
