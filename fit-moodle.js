@@ -103,6 +103,9 @@ function ActivateRestrictions() {
         $('select').prop('disabled', true);
         $('textarea').prop('disabled', true);
       }
+      if ($(location).attr('href').includes('https://learning.monash.edu/backup/') || $(location).attr('href').includes('https://learning.monash.edu/course/reset.php?id=')) {
+        $('#page-content').hide();
+      }
     }
   });
 }
