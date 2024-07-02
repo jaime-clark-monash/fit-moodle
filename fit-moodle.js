@@ -107,7 +107,39 @@ function ActivateRestrictions() {
         $('#page-content').html("<div id='monash-ai-statement-block'> <div class='side-border'></div> <i class='fas fa-exclamation-triangle' aria-hidden='true'></i> <div class='alert-content'> <p>Please contact <a href='mailto:FIT.EDiQ@monash.edu'>EDiQ team</a> for assistance with importing, back-up, and cloning of units and/or content.</p> </div> </div>");
       }
     }
-  });
+    try {
+    	// Call this function with the ID of the element where you want to add the new div.
+    	appendDivAndScroll('id_specialheader');
+    	const element = document.getElementById('id_specialheadercontainer');
+    	element.classList.add('show');
+    	element.classList.add('flashing-border');
+    	// Scroll to the element smoothly
+    	const save = document.getElementById('id_submitbutton');
+    	save.scrollIntoView({ behavior: 'smooth' });
+    	setTimeout(() => {
+    		element.classList.remove('flashing-border');
+    	}, 8000);
+      });
+    } catch {}
+}
+
+function appendDivAndScroll(elementId) {
+  // Check if the element with the given ID exists
+  const element = document.getElementById(elementId);
+  if (element) {
+    // Create a new div element
+    const newDiv = document.createElement('div');
+    newDiv.innerHTML = '<div class="container-fluid p-l-1"><div class="row"><div class="col-auto alert alert-danger"><i aria-hidden="true" class="fa fa-exclamation-triangle fa-2x"></i></div><div class="col w-100 alert alert-danger p-2 align-middle rounded-right"><div><strong>  Check Extension & Special Consideration Settings</strong></div><div>The default setting for all assessment is to grant special consideration and extensions unless these settings are adjusted <a href="https://www.monash.edu/learning-teaching/teachhq/Assessment/extensions-and-special-consideration/complex-arrangements" target="_blank">(<span class="text-primary">How-to</span>)</a>. It is the responsibility of the teaching team to ensure that complex arrangements are maintained in these settings for correct special consideration and extension granting.</div></div></div></div>'; // Set inner HTML
+
+    // Insert the new div directly after the element
+    // Insert the new div as the second child of the element
+    if (element.children.length > 1) {
+      element.insertBefore(newDiv, element.children[2]);
+    } else {
+      element.appendChild(newDiv);
+    }
+
+  }
 }
 
 function openPopup() {
