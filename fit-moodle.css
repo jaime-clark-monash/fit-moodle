@@ -341,3 +341,19 @@ However, delay the fade out process for 2.5 seconds */
         opacity: 0;
     }
 }
+
+@keyframes flashBorder {
+	0% {
+	border: 5px solid red;
+	}
+	50% {
+	border: 5px solid transparent;
+	}
+	100% {
+	border: 5px solid red;
+	}
+	}
+	
+	.flashing-border {
+	animation: flashBorder 0.8s linear infinite;
+	}
