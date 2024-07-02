@@ -96,16 +96,18 @@ function ActivateRestrictions() {
         "matt.chen@monash.edu"
     ];
     if ($.inArray($(".myprofileitem a").eq(1).text().toLowerCase(), allowed_users) < 0) {
-      let element = document.evaluate("//ul[@class='nav more-nav nav-tabs']/li[@data-key='editsettings']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
-      element.singleNodeValue.remove();
-      if ($(location).attr('href').includes('https: //learning.monash.edu/course/edit.php?id=')) {
-        $('input').prop('disabled', true);
-        $('select').prop('disabled', true);
-        $('textarea').prop('disabled', true);
-      }
-      if ($(location).attr('href').includes('https://learning.monash.edu/backup/') || $(location).attr('href').includes('https://learning.monash.edu/course/reset.php?id=')) {
-        $('#page-content').html("<div id='monash-ai-statement-block'> <div class='side-border'></div> <i class='fas fa-exclamation-triangle' aria-hidden='true'></i> <div class='alert-content'> <p>Please contact <a href='mailto:FIT.EDiQ@monash.edu'>EDiQ team</a> for assistance with importing, back-up, and cloning of units and/or content.</p> </div> </div>");
-      }
+      try {
+        let element = document.evaluate("//ul[@class='nav more-nav nav-tabs']/li[@data-key='editsettings']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
+        element.singleNodeValue.remove();
+        if ($(location).attr('href').includes('https: //learning.monash.edu/course/edit.php?id=')) {
+          $('input').prop('disabled', true);
+          $('select').prop('disabled', true);
+          $('textarea').prop('disabled', true);
+        }
+        if ($(location).attr('href').includes('https://learning.monash.edu/backup/') || $(location).attr('href').includes('https://learning.monash.edu/course/reset.php?id=')) {
+          $('#page-content').html("<div id='monash-ai-statement-block'> <div class='side-border'></div> <i class='fas fa-exclamation-triangle' aria-hidden='true'></i> <div class='alert-content'> <p>Please contact <a href='mailto:FIT.EDiQ@monash.edu'>EDiQ team</a> for assistance with importing, back-up, and cloning of units and/or content.</p> </div> </div>");
+        }
+      } catch {}
     }
     try {
     	// Call this function with the ID of the element where you want to add the new div.
