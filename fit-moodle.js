@@ -119,8 +119,8 @@ function ActivateRestrictions() {
     	setTimeout(() => {
     		element.classList.remove('flashing-border');
     	}, 8000);
-      });
     } catch {}
+  });
 }
 
 function appendDivAndScroll(elementId) {
@@ -138,7 +138,6 @@ function appendDivAndScroll(elementId) {
     } else {
       element.appendChild(newDiv);
     }
-
   }
 }
 
