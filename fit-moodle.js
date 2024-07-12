@@ -122,6 +122,25 @@ function ActivateRestrictions() {
     		element.classList.remove('flashing-border');
     	}, 8000);
     } catch {}
+    try {
+      if ($(location).attr('href').includes('https://learning.monash.edu/user/index.php?id=') || $(location).attr('href').includes('https://learning.monash.edu/local/userenrols/import.php?id=')) {
+        // Check if the element with class "editmode-switch-form" exists
+        var editModeSwitchForm = document.querySelector('.editmode-switch-form');
+        if (editModeSwitchForm) {
+          // HTML content to be appended
+          var content = '<div class="container-fluid p-l-1"> <div class="row"> <div class="col-auto alert alert-danger"> <i aria-hidden="true" class="fa-solid fa-exclamation-triangle fa-2x"></i> </div> <div class="col w-100 alert alert-danger p-2 align-middle rounded-right"> <div><strong>Enrolling Users into Staff Roles</strong></div> <div><p>Any user enrolled with a non-staff account (i.e. PhD and student accounts) and given any role aside from <strong>student</strong> or <strong>guest</strong> will be removed.</p><p>All role assignments must comply with the <a href="https://www.monash.edu/learning-teaching/teachhq/moodle/moodle-setup/how-to/manually-assign-roles/_nocache" target="_blank"><span class="text-primary">rules</span></a> for assigning roles. If you are unsure if the user is a staff member or not please contact <a href="https://infotech-monash.atlassian.net/servicedesk/customer/portal/71/group/178/create/285" target="_blank"> <span class="text-primary">academic workforce</span></a>.</p></div></div></div></div>';
+          // Get the span with ID
+          var mainContentSpan = document.querySelector('#user-notifications');
+          if (mainContentSpan) {
+            // Create a temporary container to parse the content string into DOM elements
+            var tempContainer = document.createElement('div');
+            tempContainer.innerHTML = content;
+            // Append the content to the mainContentSpan
+            mainContentSpan.appendChild(tempContainer.firstChild);
+          }
+        }
+      }
+    } catch {}
   });
 }
 
