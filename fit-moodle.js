@@ -116,8 +116,8 @@ function ActivateRestrictions() {
     	element.classList.add('show');
     	element.classList.add('flashing-border');
     	// Scroll to the element smoothly
-    	const save = document.getElementById('id_submitbutton');
-    	save.scrollIntoView({ behavior: 'smooth' });
+    	//const save = document.getElementById('id_submitbutton');
+    	//save.scrollIntoView({ behavior: 'smooth' });
     	setTimeout(() => {
     		element.classList.remove('flashing-border');
     	}, 8000);
