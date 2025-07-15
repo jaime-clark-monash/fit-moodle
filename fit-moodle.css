@@ -150,10 +150,10 @@ animation: pulse-animation 3s infinite;
 	border-left: 10px solid #006cab;
 	padding: 15px;
 }
-/* Fade down hidden information */
+/* Fade down hidden information
 .activity-item.hiddenactivity {
 	opacity: 0.7 !important;
-}
+}*/
 /* Hide scale grade type option in assignment */
     #id_grade_modgrade_type option[value=scale
 ]{
