@@ -27,15 +27,6 @@ function ActivateFeedback() {
   else {
     document.getElementById("unitFeedbackButton").setAttribute("hidden", "hidden");
     document.getElementById("feedbackReportButton").removeAttribute("hidden");
-    document.addEventListener('DOMContentLoaded', () => {
-      const integrityDiv = document.getElementById('assessmentIntegrity');
-      if (integrityDiv) {
-        const section = integrityDiv.closest('section');
-        if (section) {
-          section.style.display = 'none';
-        }
-      }
-    });
   }
 }
 
@@ -91,6 +82,15 @@ function ActivateHelp() {
 
       Context(title, subtitle, othertitle, url);
     });
+  }
+  else {
+    const integrityDiv = document.getElementById('assessmentIntegrity');
+    if (integrityDiv) {
+      const section = integrityDiv.closest('section');
+      if (section) {
+        section.style.display = 'none';
+      }
+    }
   }
 }
 
