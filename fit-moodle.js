@@ -27,13 +27,15 @@ function ActivateFeedback() {
   else {
     document.getElementById("unitFeedbackButton").setAttribute("hidden", "hidden");
     document.getElementById("feedbackReportButton").removeAttribute("hidden");
-    const integrityDiv = document.getElementById('assessmentIntegrity');
-    if (integrityDiv) {
-      const section = integrityDiv.closest('section');
-      if (section) {
-        section.style.display = 'none';
+    document.addEventListener('DOMContentLoaded', () => {
+      const integrityDiv = document.getElementById('assessmentIntegrity');
+      if (integrityDiv) {
+        const section = integrityDiv.closest('section');
+        if (section) {
+          section.style.display = 'none';
+        }
       }
-    }
+    });
   }
 }
 
