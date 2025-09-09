@@ -10,7 +10,7 @@ function ActivateFeedback() {
   if (document.getElementsByName("setmode").length < 1 || !document.getElementsByName("setmode")[0].checked) {
         var button = document.createElement("Button");
         button.innerHTML = "<div title='Any feedback about your unit's content?' class='needHBtn pulse needHBtn-bg'><strong><span class='fa-regular fa-thumbs-up needHBtn'></span></strong></div>";
-        button.style = "bottom:0;right:0;position:absolute;border:none;background-color:transparent;"
+        button.style = "bottom:0;right:0;position:fixed;border:none;background-color:transparent;"
         button.id = "feedbackButton";
         var gotoLink = document.getElementById("goto-top-link");
         gotoLink.style.display = "block";
