@@ -111,7 +111,7 @@ function ActivateRestrictions() {
       try {
         let element = document.evaluate("//ul[@class='nav more-nav nav-tabs']/li[@data-key='editsettings']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
         element.singleNodeValue.remove();
-        if ($(location).attr('href').includes('https: //learning.monash.edu/course/edit.php?id=')) {
+        if ($(location).attr('href').includes('learning.monash.edu/course/edit.php?id=')) {
           $('input').prop('disabled', true);
           $('select').prop('disabled', true);
           $('textarea').prop('disabled', true);
