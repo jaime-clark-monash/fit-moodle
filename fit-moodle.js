@@ -106,7 +106,10 @@ function ActivateRestrictions() {
         "ross.mcqueen@monash.edu",
         "phillip.abramson@monash.edu",
         "matt.chen@monash.edu",
-        "heath.graham@monash.edu"
+        "heath.graham@monash.edu",
+        "stephanie.luo@monash.edu ",
+        "bill.mezzetti@monash.edu",
+        "chris.starbuck1@monash.edu"
     ];
     if ($.inArray($(".myprofileitem a").eq(1).text().toLowerCase(), allowed_users) < 0) {
       try {
