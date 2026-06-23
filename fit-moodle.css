@@ -355,3 +355,19 @@ However, delay the fade out process for 2.5 seconds */
 	.flashing-border {
 	animation: flashBorder 0.8s linear infinite;
 	}
+
+.fit-activity-description-border {
+      border-bottom: solid 2px #0B6554;
+      display:flex;
+}
+.fit-activity-description {
+      text-transform: uppercase;
+      font-weight: bold;
+      padding: 7px 10px;
+      display: inline-block;
+      vertical-align: middle;
+}
+.fit-activity-description-bg {
+      background: #0B6554;
+      color:white;
+}
